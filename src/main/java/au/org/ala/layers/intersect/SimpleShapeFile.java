@@ -1725,6 +1725,7 @@ class DBFRecords extends Object implements Serializable {
 class DBFRecord extends Object implements Serializable {
 
     static final long serialVersionUID = 584190536943295242L;
+    static final String DATA_ENCODING = "UTF-8";
     /**
      * String [] representing the current row record in a .dbf
      */
@@ -1760,10 +1761,10 @@ class DBFRecord extends Object implements Serializable {
             try {
                 switch (f.getType()) {
                     case 'C':            //string
-                        record[i] = (new String(data, "US-ASCII")).trim();
+                        record[i] = (new String(data, DATA_ENCODING)).trim();
                         break;
                     case 'N':            //number as string
-                        record[i] = (new String(data, "US-ASCII")).trim();
+                        record[i] = (new String(data, DATA_ENCODING)).trim();
                         break;
                 }
             } catch (Exception e) {
@@ -1786,10 +1787,10 @@ class DBFRecord extends Object implements Serializable {
             try {
                 switch (f.getType()) {
                     case 'C':            //string
-                        fieldValues[i] = (new String(data, "US-ASCII")).trim();
+                        fieldValues[i] = (new String(data, DATA_ENCODING)).trim();
                         break;
                     case 'N':            //number as string
-                        fieldValues[i] = (new String(data, "US-ASCII")).trim();
+                        fieldValues[i] = (new String(data, DATA_ENCODING)).trim();
                         break;
                 }
             } catch (Exception e) {
